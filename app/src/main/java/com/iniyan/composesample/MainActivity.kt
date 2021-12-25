@@ -4,6 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -20,68 +24,29 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-//            Column(
-//                modifier = Modifier
-//                    .fillMaxSize()
-//                    .background(Color.Green),
-//                horizontalAlignment = Alignment.CenterHorizontally,
-//                verticalArrangement = Arrangement.SpaceAround
-//            ) {
-//                Text(text = "Hello")
-//                Text(text = "World")
-//                Text(text = "World")
-//            }
-
-
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxSize(0.5f)
-//                    .background(Color.Green),
-//                horizontalArrangement =Arrangement.SpaceAround,
-//                verticalAlignment = Alignment.CenterVertically
-//            ) {
-//                Text(text = "Hello")
-//                Text(text = "World")
-//                Text(text = "World")
-//            }
-
-            Row(
+            Column(
                 modifier = Modifier
-                    .width(200.dp)
-                    .height(300.dp)
-                    .background(Color.Green),
-                horizontalArrangement =Arrangement.SpaceAround,
-                verticalAlignment = Alignment.CenterVertically
+                    .background(Color.Green)
+                    .fillMaxHeight(0.5f)
+                    .fillMaxWidth()
+                    .border(5.dp, Color.Magenta)
+                    .padding(5.dp)
+                    .border(5.dp, Color.Blue)
+                    .padding(5.dp)
             ) {
-                Text(text = "Hello")
-                Text(text = "World")
-                Text(text = "World")
+                Text(text = "Iniyan", modifier = Modifier
+                    .border(5.dp,Color.Yellow)
+                    .padding(5.dp)
+                    .offset(20.dp,20.dp)
+                    .border(10.dp,Color.Blue)
+                    .padding(10.dp)
+                )
+                Spacer(modifier = Modifier.height(50.dp))
+                Text(text = "Hello Iniyan",Modifier.clickable {  })
+//                Text(text = "Hello Scrollable",Modifier.scrollable{ })
+//                Text(text = "Hello Draggable",Modifier.draggable() {  })
             }
-//            Row {
-//                Text(text = "Hello")
-//                Text(text = "World")
-//            }
-
-//            ComposeSampleTheme {
-//                // A surface container using the 'background' color from the theme
-//                Surface(color = MaterialTheme.colors.background) {
-//                    Greeting("Android")
-//                }
-//            }
+            
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ComposeSampleTheme {
-        Greeting("Android")
     }
 }
